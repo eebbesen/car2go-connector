@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.humegatech.Car2GoslingClientInterface;
@@ -22,6 +23,7 @@ public class ConnectorConfigTest {
 	// functional test requires actual Car2Go oauth_consumer_key and will hit
 	// the Car2Go API
 	@Test
+	@Ignore("functional test -- you will need to explicity run")
 	public void testGetLocations() {
 		ConnectorConfig config = new ConnectorConfig(
 				System.getProperty("CAR2GO_CONSUMER_KEY"));

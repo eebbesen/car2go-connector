@@ -1,34 +1,13 @@
 # Car2Go Anypoint Connector
 
-[Connector description including destination service or application with]
+## Supported operations
 
-# Mule supported versions
-Examples:
-Mule 3.4.x, 3.5.x
-Mule 3.4.1
-
-# [Destination service or application name] supported versions
-Example:
-Oracle E-Business Suite 12.1 and above.
-
-#Service or application supported modules
-Example:
-Oracle CRM
-Oracle Financials
-or 
-Salesforce API v.24
-Salesforce Metadata API
+### Get Locations
 
 
-# Installation 
-For beta connectors you can download the source code and build it with devkit to find it available on your local repository. Then you can add it to Studio
+## Local usage
+This connector relies on a client named Car2Gosling which is not yet available in a public repository.
 
-For released connectors you can download them from the update site in Anypoint Studio. 
-Open Anypoint Studio, go to Help → Install New Software and select Anypoint Connectors Update Site where you’ll find all avaliable connectors.
+To run tests or package locally you'll need to execute the following.  It creates a local repo on your system that points to the lib directory in this project.
 
-#Usage
-For information about usage our documentation at http://github.com/mulesoft/car2-go.
-
-# Reporting Issues
-
-We use GitHub:Issues for tracking issues with this connector. You can report new issues at this link http://github.com/mulesoft/car2-go/issues.
+    mvn deploy:deploy-file -DgroupId=com.humegatech -DartifactId=car2gosling -Dversion=1.0-SNAPSHOT -Durl=file:./lib/ -DrepositoryId=local-maven-repo -DupdateReleaseInfo=true -Dfile=./lib/car2gosling-1.0-SNAPSHOT.jar
