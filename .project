@@ -2,7 +2,9 @@
 <projectDescription>
   <name>car2go-connector</name>
   <comment>This is a parent POM with default settings for building connectors. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
-  <projects/>
+  <projects>
+    <project>car2gosling</project>
+  </projects>
   <buildSpec>
     <buildCommand>
       <name>org.mule.tooling.devkit.devkitBuilder</name>
