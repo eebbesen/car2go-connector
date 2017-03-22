@@ -11,20 +11,24 @@ import com.humegatech.mule.modules.car2go.config.ConnectorConfig;
 @Connector(name = "car2go", friendlyName = "Car2Go")
 public class Car2GoConnector {
 
-	@Config
-	ConnectorConfig config;
+    @Config
+    ConnectorConfig config;
 
-	@Processor
-	public List getLocations() {
-		return config.getClient().getLocations();
-	}
+    @Processor
+    public List getLocations() {
+        return config.getClient().getLocations();
+    }
 
-	public ConnectorConfig getConfig() {
-		return config;
-	}
+    @Processor
+    public List getVehicles(final String location) {
+        return config.getClient().getVehicles(location);
+    }
 
-	public void setConfig(ConnectorConfig config) {
-		this.config = config;
-	}
+    public ConnectorConfig getConfig() {
+        return config;
+    }
 
+    public void setConfig(final ConnectorConfig config) {
+        this.config = config;
+    }
 }
