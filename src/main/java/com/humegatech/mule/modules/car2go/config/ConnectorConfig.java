@@ -14,7 +14,7 @@ public class ConnectorConfig {
     ConnectorConfig() {
     }
 
-    ConnectorConfig(final String car2GoApiToken) {
+    public ConnectorConfig(final String car2GoApiToken) {
         this.car2GoApiToken = car2GoApiToken;
     }
 

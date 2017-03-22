@@ -1,7 +1,10 @@
 package com.humegatech.mule.modules.car2go;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.codehaus.jettison.json.JSONArray;
+import org.codehaus.jettison.json.JSONException;
 import org.mule.api.annotations.Config;
 import org.mule.api.annotations.Connector;
 import org.mule.api.annotations.Processor;
@@ -15,13 +18,13 @@ public class Car2GoConnector {
     ConnectorConfig config;
 
     @Processor
-    public List getLocations() {
-        return config.getClient().getLocations();
+    public String getLocations() throws JSONException {
+        return new JSONArray(config.getClient().getLocations()).toString();
     }
 
     @Processor
-    public List getVehicles(final String location) {
-        return config.getClient().getVehicles(location);
+    public String getVehicles(final String location) throws JSONException {
+        return new JSONArray(config.getClient().getVehicles(location)).toString();
     }
 
     public ConnectorConfig getConfig() {
@@ -30,5 +33,18 @@ public class Car2GoConnector {
 
     public void setConfig(final ConnectorConfig config) {
         this.config = config;
+    }
+
+    static List convertJSONArray(final JSONArray jsonArray) {
+        final List list = new ArrayList();
+        for (int i = 0; i < jsonArray.length(); i++) {
+            try {
+                list.add(jsonArray.get(i));
+            } catch (final JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return list;
     }
 }

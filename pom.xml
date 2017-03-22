@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.mule.modules</groupId>
     <artifactId>car2go-connector</artifactId>
-    <version>1.1.1-SNAPSHOT</version>
+    <version>1.1.3-SNAPSHOT</version>
     <packaging>mule-module</packaging>
     <name>Mule Car2Go Anypoint Connector</name>
 
@@ -32,26 +32,21 @@
         </repository>
     </repositories>
     <dependencies>
+        <!-- to avoid dependency issues with Mule CE -->
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.0</version>
+        </dependency>
         <dependency>
             <groupId>com.humegatech</groupId>
     		<artifactId>car2gosling</artifactId>
-		    <version>1.1.1-SNAPSHOT</version>
+		    <version>1.1.2-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.glassfish.jersey.media</groupId>
-            <artifactId>jersey-media-json-jackson</artifactId>
-            <version>2.25.1</version>
+            <groupId>org.codehaus.jettison</groupId>
+            <artifactId>jettison</artifactId>
+            <version>1.3.3</version>
         </dependency>
-        <dependency>
-		    <groupId>org.glassfish.jersey.core</groupId>
-		    <artifactId>jersey-common</artifactId>
-		    <version>2.11</version>
-		</dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.8.4</version>
-        </dependency>
-		        
     </dependencies>
 </project>
