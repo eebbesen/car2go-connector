@@ -18,13 +18,13 @@ public class Car2GoConnector {
     ConnectorConfig config;
 
     @Processor
-    public JSONArray getLocations() throws JSONException {
-        return new JSONArray(config.getClient().getLocations());
+    public String getLocations() throws JSONException {
+        return new JSONArray(config.getClient().getLocations()).toString();
     }
 
     @Processor
-    public JSONArray getVehicles(final String location) throws JSONException {
-        return new JSONArray(config.getClient().getVehicles(location));
+    public String getVehicles(final String location) throws JSONException {
+        return new JSONArray(config.getClient().getVehicles(location)).toString();
     }
 
     public ConnectorConfig getConfig() {
