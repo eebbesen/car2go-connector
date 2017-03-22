@@ -23,12 +23,21 @@ public class ConnectorConfigTest {
 	// functional test requires actual Car2Go oauth_consumer_key and will hit
 	// the Car2Go API
 	@Test
-	@Ignore("functional test -- you will need to explicity run")
 	public void testGetLocations() {
 		ConnectorConfig config = new ConnectorConfig(
 				System.getProperty("CAR2GO_CONSUMER_KEY"));
 		Car2GoslingClientInterface client = config.getClient();
 		ArrayList locations = client.getLocations();
+
+		assertTrue("No locations!", locations.size() > 0);
+	}
+
+	@Test
+	public void testGetVehicles() {
+		ConnectorConfig config = new ConnectorConfig(
+				System.getProperty("CAR2GO_CONSUMER_KEY"));
+		Car2GoslingClientInterface client = config.getClient();
+		ArrayList locations = client.getVehicles("Hamburg");
 
 		assertTrue("No locations!", locations.size() > 0);
 	}

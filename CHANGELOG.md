@@ -1,17 +1,22 @@
 # Car2Go Release Notes
 # --------------------------------------------------------------------
-# Date: <DD-MMM-YYYY>
-Example: 24-Jan-2015
-# Version: (default value: 0.1)
-# Supported API versions: 
-Example: Salesforce Bulk API v.28, SOAP API V.28 (include links to API docs)
-# Supported Mule Runtime Versions: 
-${project.devkitVersion}
+# Date: 03-21-2017
+
+# Version:
+1.1.0-SNAPSHOT
+# Supported API versions:
+Car2Go API v2.1 
+# Supported Mule Runtime Versions:
+3.7
 # New Features and Functionality
-(default value: Initial version) 
-Example: Added support for Query. http://github.com/mulesoft/car2-go/issues/61
-# Closed Issues in this release 
-(include issue link when possible)
-Example: Fixed problem with lost telefone on Bulk Update (CLDCONNECT-123).
-# Known Issues in this release
-Example: Session ID expires after  30 days. http://github.com/mulesoft/car2-go/issues/62
+Using version 1.1.1-SNAPSHOT for Car2Gosling.  This version exposes the remaining public endpoints for Car2Go v2.1 API 
+
+
+# Version:
+1.1.1-SNAPSHOT
+# Supported API versions:
+Car2Go API v2.1 
+# Supported Mule Runtime Versions:
+3.7
+# New Features and Functionality
+Explicit dependency on jackson-databind 2.8.4 to avoid runtime errors
