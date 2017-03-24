@@ -19,3 +19,7 @@ There's only one test per endpoint because I only care if we're getting the data
 You'll need a Car2Go OAuth consumer key assigned to `CAR2GO_CONSUMER_KEY`.
 
 `mvn test -DCAR2GO_CONSUMER_KEY=yoursecretkey`
+
+## Build connector
+
+`mvn package -DCAR2GO_CONSUMER_KEY=yoursecretkey`
