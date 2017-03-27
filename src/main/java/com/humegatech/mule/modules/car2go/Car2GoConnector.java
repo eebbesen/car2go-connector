@@ -27,6 +27,21 @@ public class Car2GoConnector {
         return new JSONArray(config.getClient().getVehicles(location)).toString();
     }
 
+    @Processor
+    public String getGasStations(final String location) throws JSONException {
+        return new JSONArray(config.getClient().getGasStations(location)).toString();
+    }
+
+    @Processor
+    public String getParkingSpots(final String location) throws JSONException {
+        return new JSONArray(config.getClient().getParkingSpots(location)).toString();
+    }
+
+    @Processor
+    public String getOperationAreas(final String location) throws JSONException {
+        return new JSONArray(config.getClient().getOperationAreas(location)).toString();
+    }
+
     public ConnectorConfig getConfig() {
         return config;
     }

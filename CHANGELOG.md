@@ -1,5 +1,19 @@
 # Car2Go Release Notes
 # --------------------------------------------------------------------
+# Date: 03-23-2017
+
+# Version:
+1.2.0-SNAPSHOT
+# Supported API versions:
+Car2Go API v2.1 
+# Supported Mule Runtime Versions:
+3.7
+# New Features and Functionality
+* No longer need local car2gosling -- that library is now available from Maven Central
+* Exposing remaining public Car2Go API endpoints
+* Changing groupId from 'org.mule.modules' to 'com.humegatech'
+
+
 # Date: 03-22-2017
 
 # Version:
