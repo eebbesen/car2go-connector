@@ -27,10 +27,6 @@
       <url>http://repository.mulesoft.org/releases/</url>
       <layout>default</layout>
     </repository>
-    <repository>
-      <id>local-maven-repo</id>
-      <url>file:///${project.basedir}/lib</url>
-    </repository>
   </repositories>
   <dependencies>
     <!-- to avoid dependency issues with Mule CE -->
