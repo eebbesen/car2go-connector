@@ -1,5 +1,17 @@
 # Car2Go Release Notes
 # --------------------------------------------------------------------
+# Date: 04-01-2017
+
+# Version:
+1.3.0
+# Supported API versions:
+Car2Go API v2.1 
+# Supported Mule Runtime Versions:
+3.7
+# New Features and Functionality
+* Released 1.3.0 with car2gosling 1.1.2
+
+
 # Date: 03-23-2017
 
 # Version:
