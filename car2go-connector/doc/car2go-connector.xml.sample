@@ -1,0 +1,3 @@
+<!-- BEGIN_INCLUDE(car2go:greet) -->
+    <car2go:greet config-ref="" friend="#[map-payload:friend]" />
+<!-- END_INCLUDE(car2go:greet) -->

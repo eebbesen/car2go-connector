@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:car2go="http://www.mulesoft.org/schema/mule/car2go" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/car2go http://www.mulesoft.org/schema/mule/car2go/current/mule-car2go.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+    <car2go:config name="Car2Go__Configuration" car2GoApiToken="your_car2go_oauth_api_key" doc:name="Car2Go: Configuration"/>
+    <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/>
+    <flow name="car2go-connector_getLocations" doc:description="Gets all Car2Go locations (cities where Car2Go operates).
+
+This call does not require any input parameters." initialState="started">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/" doc:name="HTTP"/>
+        <car2go:get-locations config-ref="Car2Go__Configuration" doc:name="Car2Go" />
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+    </flow>
+    <flow name="car2go-connector_getVehicles" initialState="started" doc:description="Requires a location as provided by getLocations">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/vehicles" doc:name="HTTP"/>
+        <set-payload value="#[message.inboundProperties.'http.query.params'.location]" mimeType="text/plain" doc:name="Set Payload to Location"/>
+        <car2go:get-vehicles config-ref="Car2Go__Configuration" location="#[payload]" doc:name="Car2Go"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+    </flow>
+    <flow name="car2go-connector_getParkingSpots" initialState="started" doc:description="Requires a location as provided by getLocations">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/parkingSpots" doc:name="HTTP"/>
+        <set-payload value="#[message.inboundProperties.'http.query.params'.location]" mimeType="text/plain" doc:name="Set Payload to Location"/>
+        <car2go:get-parking-spots config-ref="Car2Go__Configuration" location="#[payload]" doc:name="Car2Go"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+    </flow>
+</mule>
